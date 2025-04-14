@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chekitha Swayampu - Portfolio</title>
+    <!-- Import Montserrat Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =============================
+         GLOBAL RESET & BASE STYLES
+      ============================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #333;
+        background-color: #fff;
+      }
+
+      /* Universal Section Container */
+      .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* =============================
+         SHARED SECTION TITLE STYLE
+      ============================== */
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        font-weight: 700;
+        color: #222831;
+      }
+      .section-title::after {
+        content: "";
+        display: block;
+        margin: 8px auto 0;
+        width: 60px;
+        height: 4px;
+        background-color: #ee6f57;
+        border-radius: 10px;
+      }
+
+      /* =============================
+         NAVIGATION BAR
+      ============================== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fafafa;
+        padding: 1rem;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+      }
+      .nav-menu ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+      .nav-menu ul li a {
+        position: relative;
+        text-decoration: none;
+        color: #222831;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+      }
+      .nav-menu ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ee6f57;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      .nav-menu ul li a:hover::after,
+      .nav-menu ul li a.active::after {
+        transform: scaleX(1);
+      }
+      .nav-menu ul li a:hover,
+      .nav-menu ul li a.active {
+        color: #ee6f57;
+      }
+
+      /* MAIN CONTENT OFFSET */
+      .content {
+        margin-top: 80px;
+      }
+
+      /* =============================
+         HERO SECTION
+      ============================== */
+      .hero-section {
+        padding: 5rem 1.5rem;
+        scroll-margin-top: 85px;
+        background-color: #fff;
+        position: relative;
+        min-height: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-bottom: 0;
+      }
+      .hero-text {
+        flex: 1 1 55%;
+        max-width: 600px;
+      }
+      .hero-text h1 {
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .hero-text h2 {
+        font-size: 1.8rem;
+        color: #ee6f57;
+        margin-bottom: 1.5rem;
+      }
+      .hero-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+      .btn-resume {
+        background-color: #ee6f57;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      .btn-resume:hover {
+        background-color: #cb3737;
+      }
+      .hero-image {
+        flex: 1 1 40%;
+        max-width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      .hero-image img {
+        width: 100%;
+        max-width: 500px !important;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      .hero-image img:hover {
+        transform: scale(1.05);
+      }
+      .hero-line-and-icons {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .vertical-line {
+        width: 3px;
+        height: 80px;
+        background-color: #ee6f57;
+      }
+      .social-icons-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .social-icons-stack a img {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.2s;
+        cursor: pointer;
+      }
+      .social-icons-stack a img:hover {
+        transform: scale(1.2);
+      }
+
+      /* Responsive adjustments for Hero Section */
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero-text,
+        .hero-image {
+          flex: none;
+          width: 100%;
+        }
+        .hero-image {
+          margin-top: 1rem;
+        }
+      }
+
+      /* =============================
+         ABOUT SECTION
+      ============================== */
+      .about-section {
+        background-color: #f0f2f5;
+        padding: 80px 120px;
+        color: #333;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        font-family: "Montserrat", sans-serif;
+      }
+      .about-section p {
+        max-width: 900px;
+        margin: 0 auto 30px;
+        text-align: center;
+      }
+
+      /* =============================
+         TIMELINE SECTION (Merged EDUCATION & EXPERIENCE)
+      ============================== */
+      .timeline-section {
+        padding: 4rem 1.5rem;
+        background-color: #fff;
+        position: relative;
+      }
+      .timeline-container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 400px;
+      }
+      .education-column {
+        width: 33.33%;
+        padding-right: 1rem;
+        box-sizing: border-box;
+      }
+      .experience-column {
+        width: 66.66%;
+        padding-left: 1rem;
+        box-sizing: border-box;
+      }
+      .timeline-line {
+        position: absolute;
+        left: 33.33%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #ee6f57;
+      }
+
+      /*
+        --- CHANGE: Removing the circle around the year, 
+        using an icon instead, plus optional text label.
+      */
+      .year-marker {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: transparent; /* no background */
+        padding: 0; /* no padding around */
+        border: none; /* remove border */
+        border-radius: 0; /* remove rounding */
+        font-size: 0.8rem;
+        color: #222831;
+        transition: all 0.3s ease;
+        display: flex; /* to stack icon & label */
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Position each marker along the timeline (inverted order) */
+      .year-marker[data-year="2025"] {
+        top: 0%;
+      }
+      .year-marker[data-year="2023"] {
+        top: 33%;
+      }
+      .year-marker[data-year="2021"] {
+        top: 66%;
+      }
+      .year-marker[data-year="2019"] {
+        top: 100%;
+      }
+
+      /* The icon within the marker */
+      .year-marker .year-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0.3rem;
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      /* If you also want the numeric year displayed below the icon: */
+      .year-label {
+        font-size: 0.75rem;
+        color: #222831;
+      }
+
+      /*
+       --- Highlight animation triggered when 
+       .year-marker receives the 'highlight' class
+      */
+      .year-marker.highlight .year-icon {
+        transform: scale(1.3);
+        filter: brightness(1.2);
+        animation: pulse 0.6s ease;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .edu-box,
+      .exp-box {
+        background-color: #fff;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .edu-box:hover,
+      .exp-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (max-width: 768px) {
+        .timeline-container {
+          flex-direction: column;
+          position: relative;
+        }
+        .education-column,
+        .experience-column {
+          width: 100%;
+          padding: 0;
+        }
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      /* =============================
+         SKILLS SECTION
+      ============================== */
+      .skills-section {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        scroll-margin-top: 85px;
+        background-color: #eeeeee;
+      }
+      .skills-category {
+        margin-bottom: 3rem;
+      }
+      .skills-cards {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1rem;
+        justify-content: center;
+        overflow-x: auto;
+        padding: 0.5rem;
+      }
+      .skill-card {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 100px;
+        height: 100px;
+        box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        color: #333;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .skill-card:hover {
+        transform: scale(1.05);
+        box-shadow: 5px 6px 15px rgba(0, 0, 0, 0.15);
+      }
+      .skill-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.5rem;
+      }
+      .skill-name {
+        font-size: 0.85rem;
+        line-height: 1.2;
+      }
+
+      /* =============================
+         PROJECTS SECTION
+      ============================== */
+      .projects-section {
+        padding: 4rem 2rem;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        scroll-margin-top: 85px;
+        background-color: #fff;
+      }
+      .projects-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+      }
+      .projects-slider::-webkit-scrollbar {
+        display: none;
+      }
+      .projects-slide {
+        flex: 0 0 100vw;
+        scroll-snap-align: center;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+      .project-card {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 380px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 1.5rem;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      }
+      .project-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+      .project-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #005691;
+      }
+      .project-date {
+        font-size: 0.9rem;
+        color: #777;
+        margin-bottom: 1rem;
+      }
+      .project-description {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #555;
+      }
+      .pagination-indicator {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 1rem;
+      }
+      .dot {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #ccc;
+        transition: background-color 0.3s ease;
+      }
+      .dot.active {
+        background-color: #005691;
+      }
+
+      /* =============================
+         FOOTER / CONTACT SECTION
+      ============================== */
+      .footer {
+        background-color: #eeeeee;
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+      }
+      .footer h2,
+      .footer-heading {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        color: #222831;
+        position: relative;
+        display: inline-block;
+      }
+      .footer h2::before,
+      .footer h2::after,
+      .footer-heading::before,
+      .footer-heading::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 2px;
+        background-color: #ff5722;
+      }
+      .footer h2::before,
+      .footer-heading::before {
+        right: 100%;
+        margin-right: 15px;
+      }
+      .footer h2::after,
+      .footer-heading::after {
+        left: 100%;
+        margin-left: 15px;
+      }
+      .footer-icons {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .footer-icons a img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.2s ease;
+      }
+      .footer-icons a img:hover {
+        transform: scale(1.2);
+      }
+
+      /* =============================
+         FIXED HOME BUTTON
+      ============================== */
+      .home-circle-button {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 998;
+      }
+      .home-circle-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      }
+      .home-circle-button img {
+        width: 24px;
+        height: 24px;
+      }
+    </style>
+  </head>
+  <body id="top">
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+      <div class="nav-bar-container">
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="#home" class="active">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#timeline">EDUCATION & EXPERIENCE</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- HERO SECTION -->
+      <section class="hero-section" id="home">
+        <div class="section-container">
+          <div class="hero">
+            <div class="hero-text">
+              <h1>Hi, I'm Chekitha Swayampu</h1>
+              <h2>A Data Professional.</h2>
+              <p>
+                <b>
+                  Data Science. Cloud Computing. Machine Learning.<br />
+                  Data Visualization. Database Management.
+                </b>
+              </p>
+              <button class="btn-resume">Download Resume</button>
+            </div>
+            <div class="hero-image">
+              <img alt="Profile Image" src="big-profile.jpg" />
+            </div>
+          </div>
+          <!-- Vertical Social Bar inside Hero -->
+          <div class="hero-line-and-icons">
+            <div class="social-icons-stack">
+              <a href="mailto:cswayampu@gmail.com">
+                <img alt="Email Icon" src="icons/email1.png" />
+              </a>
+              <a href="tel:+15715643644">
+                <img alt="Phone Icon" src="icons/mobile1.png" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/chekitha-swayampu/"
+                target="_blank"
+                rel="noopener"
+              >
+                <img alt="Instagram Icon" src="icons/linkedin1.png" />
+              </a>
+              <a
+                href="https://github.com/chekithaswayampu06?tab=repositories"
+                target="_blank"
+                rel="noopener"
+              >
+                <img alt="GitHub Icon" src="icons/github1.png" />
+              </a>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="about-section" id="about">
+        <div class="section-container">
+          <h2 class="section-title">ABOUT ME</h2>
+          <div class="about-content">
+            <p>
+              I’m a passionate data science graduate student at The George
+              Washington University, dedicated to turning complex datasets into
+              intelligent, data-driven solutions that solve real-world
+              challenges.
+            </p>
+            <p>
+              With a strong foundation in machine learning, cloud platforms
+              (AWS, Azure), and modern data engineering tools (Python, SQL,
+              Tableau), I’ve built predictive models, automated ETL pipelines,
+              and interactive dashboards to drive strategic business decisions.
+            </p>
+            <p>
+              I value continuous learning, collaboration, and impact. I enjoy
+              working on scalable data solutions that improve efficiency and
+              accessibility. My goal is to bridge the gap between data and
+              decision-making through innovation and storytelling.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE SECTION (Merged EDUCATION and EXPERIENCE) -->
+      <section class="timeline-section" id="timeline">
+        <div class="section-container">
+          <h2 class="section-title">EDUCATION & EXPERIENCE</h2>
+          <div class="timeline-container">
+            <!-- Left Column: Education -->
+            <div class="education-column">
+              <div class="edu-box" data-year="2025">
+                <h3>The George Washington University</h3>
+                <p><strong>August 2023 – May 2025</strong></p>
+                <p>
+                  Master of Data Science<br />
+                  Washington, DC
+                </p>
+              </div>
+              <div class="edu-box" data-year="2023">
+                <h3>Vellore Institute of Technology-AP</h3>
+                <p><strong>July 2019 – May 2023</strong></p>
+                <p>
+                  Bachelor of Technology in Computer Science – Data Analysis
+                  Specialization<br />
+                  Andhra Pradesh, India
+                </p>
+              </div>
+            </div>
+            <!-- Right Column: Experience -->
+            <div class="experience-column">
+              <div class="exp-box">
+                <h3>Data Analyst Intern | Suvega Technologies</h3>
+                <p><strong>January 2023 – July 2023</strong></p>
+                <p>
+                  • Developed a Python predictive model using ETL, data
+                  cleaning, transformation, and streamlined SQL database
+                  queries, reducing truck cycle times by 35% and enhancing fleet
+                  efficiency with robust data validation checks.<br />
+                  • Automated large-scale data pipelines using SQL and Python,
+                  applied data engineering practices, boosting efficiency by
+                  92%, while collaborating in an Agile environment through
+                  stand-ups and sprint planning to optimize workflows.<br />
+                  • Designed and optimized 10+ Tableau dashboards by integrating
+                  different SQL-based data sources, delivering real-time
+                  analytics and collaborating with teams to meet data
+                  visualization requirements and decision-making.<br />
+                  • Facilitated weekly client meetings, translating complex data
+                  insights into business solutions. Simplified technical
+                  concepts for non-technical stakeholders, enabling data-driven
+                  decisions and aligning analytics with operational goals.
+                </p>
+              </div>
+            </div>
+            <!-- Vertical Timeline Line with Markers Replacing Circles with Icons -->
+            <div class="timeline-line">
+              <!-- 2025 marker -->
+              <div class="year-marker" data-year="2025">
+                <img
+                  class="year-icon"
+                  src="icons/graduation.png"
+                  alt="2025 Icon"
+                />
+                <span class="year-label">2025</span>
+              </div>
+              <!-- 2023 marker -->
+              <div class="year-marker" data-year="2023">
+                <img
+                  class="year-icon"
+                  src="icons/graduation.png"
+                  alt="2023 Icon"
+                />
+                <span class="year-label">2023</span>
+              </div>
+              <!-- 2021 marker (no custom icon file shown here, but you can add one) -->
+              <div class="year-marker" data-year="2021">
+                <span class="year-label">2021</span>
+              </div>
+              <!-- 2019 marker -->
+              <div class="year-marker" data-year="2019">
+                <span class="year-label">2019</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section class="skills-section" id="skills">
+        <div class="section-container">
+          <h2 class="section-title">SKILLS</h2>
+          <div class="skills-category">
+            <h2>Programming &amp; Scripting Languages</h2>
+            <div class="skills-cards">
+              <div class="skill-card">
+                <img alt="Python" class="skill-icon" src="icons/python.png" />
+                <span class="skill-name">Python</span>
+              </div>
+              <div class="skill-card">
+                <img alt="R" class="skill-icon" src="icons/r.png" />
+                <span class="skill-name">R</span>
+              </div>
+              <div class="skill-card">
+                <img alt="SQL" class="skill-icon" src="icons/sql.png" />
+                <span class="skill-name">SQL</span>
+              </div>
+              <div class="skill-card">
+                <img alt="Java" class="skill-icon" src="icons/java.png" />
+                <span class="skill-name">Java</span>
+              </div>
+              <div class="skill-card">
+                <img alt="HTML" class="skill-icon" src="icons/html.png" />
+                <span class="skill-name">HTML</span>
+              </div>
+              <div class="skill-card">
+                <img alt="CSS" class="skill-icon" src="icons/css.png" />
+                <span class="skill-name">CSS</span>
+              </div>
+              <div class="skill-card">
+                <img alt="Bash" class="skill-icon" src="icons/bash.png" />
+                <span class="skill-name">Bash</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h2>Databases &amp; Storage</h2>
+            <div class="skills-cards">
+              <div class="skill-card">
+                <img alt="MySQL" class="skill-icon" src="icons/mysql.png" />
+                <span class="skill-name">MySQL</span>
+              </div>
+              <div class="skill-card">
+                <img
+                  alt="PostgreSQL"
+                  class="skill-icon"
+                  src="icons/postgre.png"
+                />
+                <span class="skill-name">PostgreSQL</span>
+              </div>
+              <div class="skill-card">
+                <img alt="MongoDB" class="skill-icon" src="icons/mongodb.png" />
+                <span class="skill-name">MongoDB</span>
+              </div>
+              <div class="skill-card">
+                <img
+                  alt="Cassandra"
+                  class="skill-icon"
+                  src="icons/cassandra.svg"
+                />
+                <span class="skill-name">Cassandra</span>
+              </div>
+              <div class="skill-card">
+                <img alt="Neo4j" class="skill-icon" src="icons/neo4j.svg" />
+                <span class="skill-name">Neo4j</span>
+              </div>
+              <div class="skill-card">
+                <img alt="AWS RDS" class="skill-icon" src="icons/RDS.png" />
+                <span class="skill-name">AWS RDS</span>
+              </div>
+              <div class="skill-card">
+                <img alt="AWS S3" class="skill-icon" src="icons/s3.png" />
+                <span class="skill-name">AWS S3</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h2>Big Data &amp; Cloud Technologies</h2>
+            <div class="skills-cards">
+              <div class="skill-card">
+                <img alt="AWS Glue" class="skill-icon" src="icons/glue.png" />
+                <span class="skill-name">AWS Glue</span>
+              </div>
+              <div class="skill-card">
+                <img
+                  alt="AWS Lambda"
+                  class="skill-icon"
+                  src="icons/lambda.png"
+                />
+                <span class="skill-name">AWS Lambda</span>
+              </div>
+              <div class="skill-card">
+                <img
+                  alt="Apache Spark"
+                  class="skill-icon"
+                  src="icons/apache-spark.png"
+                />
+                <span class="skill-name">Apache Spark</span>
+              </div>
+              <div class="skill-card">
+                <img
+                  alt="Microsoft Azure"
+                  class="skill-icon"
+                  src="icons/azure.png"
+                />
+                <span class="skill-name">Microsoft Azure</span>
+              </div>
+              <div class="skill-card">
+                <img alt="GCP" class="skill-icon" src="icons/gcp.png" />
+                <span class="skill-name">GCP</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h2>Data Analysis &amp; Visualization Tools</h2>
+            <div class="skills-cards">
+              <div class="skill-card">
+                <img alt="Tableau" class="skill-icon" src="icons/tableau.png" />
+                <span class="skill-name">Tableau</span>
+              </div>
+              <div class="skill-card">
+                <img
+                  alt="Power BI"
+                  class="skill-icon"
+                  src="icons/powerbi.png"
+                />
+                <span class="skill-name">Power BI</span>
+              </div>
+              <div class="skill-card">
+                <img
+                  alt="AWS QuickSight"
+                  class="skill-icon"
+                  src="icons/quicksight.png"
+                />
+                <span class="skill-name">AWS QuickSight</span>
+              </div>
+              <div class="skill-card">
+                <img alt="D3.js" class="skill-icon" src="icons/d3.js.png" />
+                <span class="skill-name">D3.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section class="projects-section" id="projects">
+        <div class="section-container">
+          <h2 class="section-title">PROJECTS</h2>
+          <div class="projects-slider">
+            <div class="projects-slide" id="slide1">
+              <div class="project-card">
+                <img
+                  alt="Weather Project"
+                  class="project-img"
+                  src="weather.jpeg"
+                />
+                <h2>Impact of Weather on Energy Consumption</h2>
+                <p class="project-date">Aug 2024 – Dec 2024 | GWU</p>
+                <p class="project-description">
+                  Forecasted energy consumption using AWS SageMaker and built an
+                  ETL pipeline with AWS Glue and S3. Visualized trends with AWS
+                  QuickSight.
+                </p>
+              </div>
+              <div class="project-card">
+                <img
+                  alt="Walmart Sales Forecasting Model"
+                  class="project-img"
+                  src="forecaste.webp"
+                />
+                <h2>Walmart Sales Forecasting Model</h2>
+                <p class="project-date">Jan 2024 – May 2024 | GWU</p>
+                <p class="project-description">
+                  Developed ARIMA/SARIMA and LSTM models to forecast sales
+                  trends. Improved forecasting accuracy by 15% using data
+                  scaling, lag features, and rolling averages.
+                </p>
+              </div>
+              <div class="project-card">
+                <img
+                  alt="Facial Data Evaluation Using CNN"
+                  class="project-img"
+                  src="facial.png"
+                />
+                <h2>Facial Data Evaluation Using CNN</h2>
+                <p class="project-date">Oct 2022 – Dec 2022 | VIT</p>
+                <p class="project-description">
+                  Led a team to build a CNN for detecting facial age, emotion,
+                  and gender using 60K+ images. Enhanced with OpenCV and
+                  TensorFlow for real-time recognition.
+                </p>
+              </div>
+            </div>
+            <div class="projects-slide" id="slide2">
+              <div class="project-card">
+                <img
+                  alt="Supply Stream Insights"
+                  class="project-img"
+                  src="supplychain.jpg"
+                />
+                <h2>Supply Stream Insights</h2>
+                <p class="project-date">Sept 2023 – Dec 2023</p>
+                <p class="project-description">
+                  Built ML models (Random Forest, XGBoost, SVM) achieving 97%
+                  accuracy to predict delivery risk. Segmented customers and
+                  prioritized inventory.
+                </p>
+              </div>
+              <div class="project-card">
+                <img
+                  alt="Drowsy Driver Alert System"
+                  class="project-img"
+                  src="drowsy driver.jpg"
+                />
+                <h2>Drowsy Driver Alert System</h2>
+                <p class="project-date">Jan 2022 – June 2022</p>
+                <p class="project-description">
+                  Developed a deep learning-based alert system that detects
+                  drowsiness via eye closure patterns. Processed in real-time
+                  using OpenCV.
+                </p>
+              </div>
+              <div class="project-card">
+                <img
+                  alt="Environmental Change Visualization Dashboard"
+                  class="project-img"
+                  src="dashboard.png"
+                />
+                <h2>Environmental Change Visualization Dashboard</h2>
+                <p class="project-date">Jan 2024 – May 2024</p>
+                <p class="project-description">
+                  Created an interactive dashboard visualizing deforestation,
+                  CO₂ emissions, and global temperature trends. Dynamic line
+                  charts and time-series visualizations support user
+                  interactivity.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="pagination-indicator">
+            <div class="dot dot1"></div>
+            <div class="dot dot2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER / CONTACT SECTION -->
+      <footer class="footer" id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="footer-icons">
+          <a href="mailto:cswayampu@gmail.com">
+            <img alt="Email Icon" src="icons/email.png" />
+          </a>
+          <a href="tel:+15715643644">
+            <img alt="Phone Icon" src="icons/mobile.png" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chekitha-swayampu/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img alt="Instagram Icon" src="icons/linkedin.png" />
+          </a>
+          <a
+            href="https://github.com/chekithaswayampu06?tab=repositories"
+            target="_blank"
+            rel="noopener"
+          >
+            <img alt="GitHub Icon" src="icons/github.png" />
+          </a>
+        </div>
+      </footer>
+
+      <!-- FIXED HOME BUTTON -->
+      <a class="home-circle-button" href="#top">
+        <img alt="Home" src="icons/home.png" />
+      </a>
+    </main>
+
+    <!-- =============================
+         JAVASCRIPT: Nav Active State, Projects Slider, & Education Hover
+    ============================== -->
+    <script>
+      // Intersection Observer for updating active nav link based on scroll
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-menu ul li a");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => link.classList.remove("active"));
+              const activeLink = document.querySelector(
+                `.nav-menu a[href="#${entry.target.id}"]`
+              );
+              if (activeLink) activeLink.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      // Projects Slider Pagination
+      const slider = document.querySelector(".projects-slider");
+      const dot1 = document.querySelector(".dot.dot1");
+      const dot2 = document.querySelector(".dot.dot2");
+
+      slider.addEventListener("scroll", function () {
+        const index = Math.round(slider.scrollLeft / slider.clientWidth);
+        if (index === 0) {
+          dot1.classList.add("active");
+          dot2.classList.remove("active");
+        } else {
+          dot1.classList.remove("active");
+          dot2.classList.add("active");
+        }
+      });
+
+      // Highlight the timeline icon on hover of the education box
+      const educationBoxes = document.querySelectorAll(".edu-box");
+      educationBoxes.forEach((box) => {
+        box.addEventListener("mouseenter", function () {
+          const year = box.getAttribute("data-year");
+          const marker = document.querySelector(
+            `.year-marker[data-year="${year}"]`
+          );
+          if (marker) {
+            marker.classList.add("highlight");
+          }
+        });
+
+        box.addEventListener("mouseleave", function () {
+          const year = box.getAttribute("data-year");
+          const marker = document.querySelector(
+            `.year-marker[data-year="${year}"]`
+          );
+          if (marker) {
+            marker.classList.remove("highlight");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
