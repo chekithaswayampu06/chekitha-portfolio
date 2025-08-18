@@ -429,91 +429,143 @@
         line-height: 1.2;
       }
 
-      /* =============================
-         PROJECTS SECTION
-      ============================== */
-      .projects-section {
-        padding: 4rem 2rem;
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-        scroll-margin-top: 85px;
-        background-color: #fff;
-      }
-      .projects-slider {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        width: 100%;
-      }
-      .projects-slider::-webkit-scrollbar {
-        display: none;
-      }
-      .projects-slide {
-        flex: 0 0 100vw;
-        scroll-snap-align: center;
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        padding: 1rem;
-        box-sizing: border-box;
-      }
-      .project-card {
-        background-color: #fff;
-        border-radius: 8px;
-        width: 380px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        text-align: left;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin-bottom: 1.5rem;
-      }
-      .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-      }
-      .project-img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 4px;
-        margin-bottom: 1rem;
-      }
-      .project-card h2 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: #EE6F57;
-      }
-      .project-date {
-        font-size: 0.9rem;
-        color: #777;
-        margin-bottom: 1rem;
-      }
-      .project-description {
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #555;
-      }
-      .pagination-indicator {
-        position: absolute;
-        bottom: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 1rem;
-      }
-      .dot {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: #ccc;
-        transition: background-color 0.3s ease;
-      }
-      .dot.active {
-        background-color: #EE6F57;
-      }
+      <!-- PROJECTS -->
+      <section class="projects-section" id="projects">
+        <div class="section-container">
+          <h2 class="section-title">PROJECTS</h2>
+          <div class="projects-slider">
+            <div class="projects-slide" id="slide1">
+              <div class="project-card">
+                <img
+                  alt="Weather Project"
+                  class="project-img"
+                  src="Forecasting-Tournament.png"
+                />
+                <h2>Temperature Forecasting Using ML</h2>
+                <p class="project-date">Jan 2025 – May 2025 | GWU</p>
+                <p class="project-description">
+                  A project that applies machine learning, deep learning, and
+                  forecasting techniques to predict daily U.S. temperatures,
+                  enhanced with feature engineering, visualizations, and
+                  interactive dashboards to support climate and environmental
+                  decision-making.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <img
+                  alt="Facial Data Evaluation Using CNN"
+                  class="project-img"
+                  src="facial.png"
+                />
+                <h2>Facial Data Evaluation Using CNN</h2>
+                <p class="project-date">Oct 2022 – Dec 2022 | VIT</p>
+                <p class="project-description">
+                  A real-time facial analytics system that detects eye and mouth
+                  states, age, gender, and emotions using deep learning. Built
+                  with MediaPipe’s 468-point Face Mesh, OpenCV, and
+                  TensorFlow/Keras.
+                </p>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img
+                alt="Weather Project"
+                class="project-img"
+                src="weather.jpeg"
+              />
+              <h2>Impact of Weather on Energy Consumption</h2>
+              <p class="project-date">Aug 2024 – Dec 2024 | GWU</p>
+              <p class="project-description">
+                Forecasted energy consumption using AWS SageMaker and built an
+                ETL pipeline with AWS Glue and S3. Visualized trends with AWS
+                QuickSight.
+              </p>
+            </div>
+
+            <div class="projects-slide" id="slide2">
+              <div class="project-card">
+                <img
+                  alt="Supply Stream Insights"
+                  class="project-img"
+                  src="supplychain.jpg"
+                />
+                <h2>Data Driven Supply Chain Analytics</h2>
+                <p class="project-date">Sept 2023 – Dec 2023</p>
+                <p class="project-description">
+                  A data mining pipeline for supply chain and sales analysis,
+                  combining EDA, predictive modeling, and optimization for
+                  actionable insights.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <img
+                  alt="Walmart Sales Forecasting Model"
+                  class="project-img"
+                  src="forecaste.webp"
+                />
+                <h2>Walmart Sales Forecasting Model</h2>
+                <p class="project-date">Jan 2024 – May 2024 | GWU</p>
+                <p class="project-description">
+                  Forecasting with the M5 dataset, leveraging historical sales
+                  and external signals to predict 28-day demand for better
+                  inventory planning.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <img
+                  alt="Drowsy Driver Alert System"
+                  class="project-img"
+                  src="drowsy driver.jpg"
+                />
+                <h2>Drowsy Driver Alert System</h2>
+                <p class="project-date">Jan 2022 – June 2022</p>
+                <p class="project-description">
+                  A real-time drowsiness detection system with OpenCV, dlib, and
+                  deep learning landmarks to enhance driver safety.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <img
+                  alt="Environmental Change Visualization Dashboard"
+                  class="project-img"
+                  src="dashboard.png"
+                />
+                <h2>Deforestation, Carbon Emissions, and Temperature Trends</h2>
+                <p class="project-date">Jan 2024 – May 2024</p>
+                <p class="project-description">
+                  A narrative visualization combining deforestation, emissions,
+                  and climate datasets to show cascading impacts with clear
+                  visual design.
+                </p>
+              </div>
+
+              <div class="project-card">
+                <img
+                  alt="Data Brew"
+                  class="project-img"
+                  src="segmentation.jpg"
+                />
+                <h2>Data Brew: Starbucks Customer Segmentation</h2>
+                <p class="project-date">Jan 2022 – June 2022</p>
+                <p class="project-description">
+                  K-Means clustering on transactions and offers to find customer
+                  groups for personalization and retention.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pagination-indicator">
+            <div class="dot dot1 active"></div>
+            <div class="dot dot2"></div>
+          </div>
+        </div>
+      </section>
 
       /* =============================
          FOOTER / CONTACT SECTION
